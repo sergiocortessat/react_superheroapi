@@ -15,12 +15,12 @@ function App() {
   };
   useEffect(() => {
     fetch();
+    // console.log(data);
   }, []);
 
   return (
     <div className="App">
-      {data && data.map((item) => item)}
-      {/* <navBar /> */}
+      {data && data.name}
     </div>
   );
 }
