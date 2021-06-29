@@ -1,25 +1,26 @@
 import axios from 'axios';
-import { useEffect } from 'react';
-import navBar from './Components/NavBar';
+import { useEffect, useState } from 'react';
+// import navBar from './Components/NavBar';
 
 function App() {
   const [data, setData] = useState([]);
-  async function getUser() {
+  const fetch = async () => {
     try {
-      const { response } = await axios.get('https://superheroapi.com/api/10151718746214987');
-      console.log(response);
-      setData(response);
+      const { data } = await axios.get('https://www.superheroapi.com/api.php/10151718746214987/1');
+      console.log(data);
+      setData(data);
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
-  }
+  };
   useEffect(() => {
-    getUser();
+    fetch();
   }, []);
+
   return (
     <div className="App">
-      Hello
-      <navBar />
+      {data && data.map((item) => item)}
+      {/* <navBar /> */}
     </div>
   );
 }
