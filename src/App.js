@@ -30,8 +30,8 @@ function App() {
       <Form />
       {console.log(data[0])}
       <div>
-        {/* {data && <SuperCard data={data[0]} />}
-        {data && <SuperCard data={data[1]} />} */}
+        {data && <SuperCard data={data[0]} />}
+        {data && <SuperCard data={data[1]} />}
       </div>
     </div>
   );
