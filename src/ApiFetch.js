@@ -1,13 +1,39 @@
+/* eslint-disable consistent-return */
 import axios from 'axios';
 
-const apiFetch = async () => {
+const URL = 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json';
+
+const fetchHeroes = async (searchTerm = '', gender = '') => {
   try {
-    const { apiData } = await axios.get('https://www.superheroapi.com/api.php/10151718746214987/1');
-    console.log(apiData);
-    return apiData;
+    const { data } = await axios.get(URL);
+
+    const superheroes = data.sort(() => Math.random() - 0.5);
+
+    const strippedSuperheroes = superheroes.map((superhero) => {
+      const {
+        name, powerstats,
+        appearance: { gender, race },
+        biography: { fullName, firstAppearance, publisher },
+        work: { occupation }, images: { lg: image },
+      } = superhero;
+
+      const strippedSuperhero = {
+        name, powerstats, gender, race, fullName, firstAppearance, publisher, occupation, image,
+      };
+
+      return strippedSuperhero;
+    });
+
+    const searchedSuperheroes = strippedSuperheroes
+      .filter((superHero) => superHero.name.toLowerCase().startsWith(searchTerm.toLowerCase()));
+
+    const filteredSuperheroes = searchedSuperheroes
+      .filter((superHero) => superHero.gender.includes(gender));
+
+    return filteredSuperheroes;
   } catch (error) {
-    return error;
+    console.log(error);
   }
 };
 
-export default apiFetch;
+export default fetchHeroes;
