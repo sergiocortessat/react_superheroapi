@@ -1,11 +1,13 @@
 /* eslint-disable max-len */
 /* eslint-disable consistent-return */
-// import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Form from './Components/Form';
 import SuperCard from './Components/SuperCard';
 import fetchHeroes from './ApiFetch';
 // import navBar from './Components/NavBar';
+import CircularUnderLoad from './Components/Loading';
+import './Components/supercard.css';
+
 function App() {
   const [data, setData] = useState([]);
   // const urlData = 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json';
@@ -50,12 +52,13 @@ function App() {
     // fetchData().then((item) => setData(item));
     // }
   }, []);
-
+  if (data.length === 0) {
+    return <CircularUnderLoad />;
+  }
   return (
     <div className="App">
       <Form />
-      <div>
-        {console.log(data)}
+      <div className="supercard">
         {data && <SuperCard data={data} />}
       </div>
     </div>

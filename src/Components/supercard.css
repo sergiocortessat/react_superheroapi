@@ -1,0 +1,10 @@
+.supercard {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  justify-content: center;
+}
+
+.supercard .card {
+  margin-right: 10px;
+}
