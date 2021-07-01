@@ -56,7 +56,7 @@ function App() {
       <Form />
       <div>
         {console.log(data)}
-        <SuperCard data={data} />
+        {data && <SuperCard data={data} />}
       </div>
     </div>
   );
