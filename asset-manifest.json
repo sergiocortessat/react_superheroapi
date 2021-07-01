@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react_superheroapi/static/css/main.44c668ad.chunk.css",
-    "main.js": "/react_superheroapi/static/js/main.b5605293.chunk.js",
-    "main.js.map": "/react_superheroapi/static/js/main.b5605293.chunk.js.map",
+    "main.js": "/react_superheroapi/static/js/main.a593a535.chunk.js",
+    "main.js.map": "/react_superheroapi/static/js/main.a593a535.chunk.js.map",
     "runtime-main.js": "/react_superheroapi/static/js/runtime-main.2468d488.js",
     "runtime-main.js.map": "/react_superheroapi/static/js/runtime-main.2468d488.js.map",
     "static/js/2.708ccdfa.chunk.js": "/react_superheroapi/static/js/2.708ccdfa.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.2468d488.js",
     "static/js/2.708ccdfa.chunk.js",
     "static/css/main.44c668ad.chunk.css",
-    "static/js/main.b5605293.chunk.js"
+    "static/js/main.a593a535.chunk.js"
   ]
 }
