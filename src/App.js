@@ -40,7 +40,7 @@ function App() {
         </Select>
       </form>
       <div className="supercard">
-        {data && <SuperCard data={data} filter={filter} />}
+        {data && <SuperCard data={data} />}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import fetchHeroes from '../ApiFetch';
 const Form = () => {
   const handleChange = async (event) => {
     const test = await fetchHeroes(event.target.value);
-    console.log(test);
+    return test;
   };
   return (
     <form action="herosearch" className="form">

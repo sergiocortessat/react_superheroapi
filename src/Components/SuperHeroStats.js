@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { LinearProgress } from '@material-ui/core';
 
 function SuperHeroStats({ data }) {
-  console.log(data);
   return (
     <>
       <p>

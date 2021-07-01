@@ -6,11 +6,7 @@ import SuperHero from './SuperHeroStats';
 // import { HiOutlineMailOpen } from 's/hi';
 // import { LinearProgress } from '@material-ui/core';
 
-const SuperCard = ({ data, filter }) => {
-  // console.log(data[0]);
-  if (filter) {
-    console.log('yes');
-  }
+const SuperCard = ({ data }) => {
   const listElements = data.map((item) => (
 
     <div className="card" style={{ width: '18rem' }} key={item.name}>
@@ -66,7 +62,6 @@ SuperCard.propTypes = {
   //   // //     }).isRequired,
   // }).isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  filter: PropTypes.string.isRequired,
   // data: PropTypes.arrayOf.isRequired,
 
 };
