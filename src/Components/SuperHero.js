@@ -3,15 +3,33 @@ import PropTypes from 'prop-types';
 import { LinearProgress } from '@material-ui/core';
 
 function SuperHero({ data }) {
-  console.log(data.powerstats);
+  console.log(data);
   return (
     <>
       <p>
         Combat
-        <span>
-          <LinearProgress variant="determinate" value={data.powerstats.combat} />
-        </span>
       </p>
+      <LinearProgress variant="determinate" value={data.powerstats.combat} className="mb-3" />
+      <p>
+        Durability
+      </p>
+      <LinearProgress variant="determinate" value={data.powerstats.durability} className="mb-3" />
+      <p>
+        Intelligence
+      </p>
+      <LinearProgress variant="determinate" value={data.powerstats.intelligence} className="mb-3" />
+      <p>
+        Power
+      </p>
+      <LinearProgress variant="determinate" value={data.powerstats.power} className="mb-3" />
+      <p>
+        Speed
+      </p>
+      <LinearProgress variant="determinate" value={data.powerstats.speed} className="mb-3" />
+      <p>
+        Strength
+      </p>
+      <LinearProgress variant="determinate" value={data.powerstats.strength} className="mb-3" />
     </>
   );
 }

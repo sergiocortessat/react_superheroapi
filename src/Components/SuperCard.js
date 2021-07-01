@@ -13,15 +13,36 @@ const SuperCard = ({ data }) => {
     <div className="card" style={{ width: '18rem' }} key={item.id}>
       <img className="card-img-top" src={item.image} alt="Card" />
       <div className="card-body">
-        <h5 className="card-title">{item.name}</h5>
-        <p className="card-text">{item.fullName}</p>
+        <h5 className="card-title">
+          Hero Name:
+          {' '}
+          {item.name}
+        </h5>
+        <p className="card-text">
+          Full Name:
+          {' '}
+          {item.fullName}
+        </p>
       </div>
       <ul className="list-group list-group-flush">
-        <li className="list-group-item">Cras justo odio</li>
-        <li className="list-group-item">Dapibus ac facilisis in</li>
-        <li className="list-group-item">Vestibulum at eros</li>
+        <li className="list-group-item">
+          Race:
+          {' '}
+          {item.race}
+        </li>
+        <li className="list-group-item">
+          First Appearance:
+          {' '}
+          {item.firstAppearance}
+        </li>
+        <li className="list-group-item">
+          Publisher:
+          {' '}
+          {item.publisher}
+        </li>
       </ul>
       <div className="card-body">
+        <h3>Hero Stats</h3>
         <SuperHero data={item} />
       </div>
     </div>
