@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LinearProgress } from '@material-ui/core';
 
-function SuperHero({ data }) {
+function SuperHeroStats({ data }) {
   console.log(data);
   return (
     <>
@@ -34,8 +34,8 @@ function SuperHero({ data }) {
   );
 }
 
-SuperHero.propTypes = {
+SuperHeroStats.propTypes = {
   data: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
-export default SuperHero;
+export default SuperHeroStats;

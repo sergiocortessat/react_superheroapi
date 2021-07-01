@@ -2,7 +2,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import PropTypes from 'prop-types';
-import SuperHero from './SuperHero';
+import SuperHero from './SuperHeroStats';
 // import { HiOutlineMailOpen } from 's/hi';
 // import { LinearProgress } from '@material-ui/core';
 
@@ -14,26 +14,27 @@ const SuperCard = ({ data }) => {
       <img className="card-img-top" src={item.image} alt="Card" />
       <div className="card-body">
         <h5 className="card-title">
-          Hero Name:
+          Name:
           {' '}
           {item.name}
         </h5>
         <p className="card-text">
-          Full Name:
+          Full-Name:
           {' '}
-          {item.fullName}
+          {item.fullName ? item.fullName : item.name}
         </p>
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">
           Race:
           {' '}
-          {item.race}
+          {item.race ? item.race : 'Unknown'}
         </li>
         <li className="list-group-item">
           First Appearance:
           {' '}
-          {item.firstAppearance}
+          {(item.firstAppearance && item.firstAppearance !== '-') && item.firstAppearance}
+          {item.firstAppearance === '-' && 'Unknown'}
         </li>
         <li className="list-group-item">
           Publisher:
@@ -53,25 +54,6 @@ const SuperCard = ({ data }) => {
       { listElements }
     </>
   );
-  // return (
-  //   <div className="card" style={{ width: '18rem' }} key="data.id">
-  //     <img className="card-img-top" src="ndhd" alt="Card" />
-  //     <div className="card-body">
-  //       <h5 className="card-title">shkshjhdk</h5>
-  //       <p className="card-text">jdkjdkljdkl</p>
-  //     </div>
-  //     <ul className="list-group list-group-flush">
-  //       <li className="list-group-item">Cras justo odio</li>
-  //       <li className="list-group-item">Dapibus ac facilisis in</li>
-  //       <li className="list-group-item">Vestibulum at eros</li>
-  //     </ul>
-  //     <div className="card-body">
-  //       <a href="#index" className="card-link">Card link</a>
-  //       <a href="#index" className="card-link">Another link</a>
-  //     </div>
-  //   </div>
-
-  // );
 };
 SuperCard.propTypes = {
   // data: PropTypes.shape({
