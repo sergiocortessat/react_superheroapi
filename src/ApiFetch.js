@@ -29,7 +29,9 @@ const fetchHeroes = async (searchTerm = '', gender = '') => {
 
     const filteredSuperheroes = searchedSuperheroes
       .filter((superHero) => superHero.gender.includes(gender));
-
+    if (!searchTerm) {
+      return filteredSuperheroes.slice(0, 5);
+    }
     return filteredSuperheroes;
   } catch (error) {
     console.log(error);

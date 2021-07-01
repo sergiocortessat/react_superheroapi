@@ -35,7 +35,7 @@ function SuperHeroStats({ data }) {
 }
 
 SuperHeroStats.propTypes = {
-  data: PropTypes.objectOf(PropTypes.object).isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default SuperHeroStats;

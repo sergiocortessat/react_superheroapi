@@ -7,4 +7,57 @@
 
 .supercard .card {
   margin-right: 10px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  border: 1px solid white;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  /* max-height: 27vh; */
+}
+
+.card > ul > li {
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  border: 1px solid white;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+  max-height: 27vh;
+}
+
+.first-appearance {
+  min-height: 20vh;
+  max-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-name {
+  min-height: 23vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  max-height: 23vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-stats {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.card-img-top {
+  opacity: 0.9;
+}
+
+.form {
+  margin-top: 50px;
+}
+
+.form > input {
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
 }

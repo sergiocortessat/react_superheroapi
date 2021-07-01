@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable consistent-return */
 import { useEffect, useState } from 'react';
-import Form from './Components/Form';
+// import Form from './Components/Form';
+import { Select, MenuItem } from '@material-ui/core';
 import SuperCard from './Components/SuperCard';
 import fetchHeroes from './ApiFetch';
 // import navBar from './Components/NavBar';
@@ -10,56 +11,36 @@ import './Components/supercard.css';
 
 function App() {
   const [data, setData] = useState([]);
-  // const urlData = 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json';
-  // const fetchData = async () => {
-  //   try {
-  //     // const newData = await axios.get(`https://www.superheroapi.com/api.php/10151718746214987/${Math.floor(Math.random() * 730)}`);
-  //     const { data } = await axios.get(urlData);
-
-  //     const superheroes = data.sort(() => Math.random() - 0.5);
-
-  //     const strippedSuperheroes = superheroes.map((superhero) => {
-  //       const {
-  //         name,
-  //         powerstats,
-  //         appearance: { gender, race },
-  //         biography: { fullName, firstAppearance, publisher },
-  //         work: { occupation },
-  //         images: { lg: image },
-  //       } = superhero;
-
-  //       const strippedSuperhero = {
-  //         name, powerstats, gender, race, fullName, firstAppearance, publisher, occupation, image,
-  //       };
-
-  //       return strippedSuperhero;
-  //     });
-  //     return strippedSuperheroes;
-  //     // const { data2 } = await axios.get('https://www.superheroapi.com/api.php/10151718746214987/2');
-  //     // setData([...data, data2]);
-  //     // setData([data]);
-  //   } catch (error) {
-  //     return error;
-  //   }
-  // };
+  const [gender, setGender] = useState('');
+  const [filter, setFilter] = useState('');
   useEffect(() => {
     const fetchingData = async () => {
-      setData(await fetchHeroes());
+      setData(await fetchHeroes(filter, gender));
     };
 
     fetchingData();
-    // for (let i = 0; i < 5; i += 1) {
-    // fetchData().then((item) => setData(item));
-    // }
-  }, []);
-  if (data.length === 0) {
-    return <CircularUnderLoad />;
+  }, [filter, gender]);
+
+  if (data.length === 0 && !filter) {
+    return (
+      <div>
+        <CircularUnderLoad />
+      </div>
+    );
   }
   return (
     <div className="App">
-      <Form />
+      <form action="herosearch" className="form">
+        <input onChange={(event) => setFilter(event.target.value)} type="text" />
+        <Select value={gender} onChange={(event) => setGender(event.target.value)}>
+          <MenuItem value="Male">Male</MenuItem>
+          <MenuItem value="Female">Female</MenuItem>
+          <MenuItem value="">All</MenuItem>
+          <MenuItem value="-">Genderless</MenuItem>
+        </Select>
+      </form>
       <div className="supercard">
-        {data && <SuperCard data={data} />}
+        {data && <SuperCard data={data} filter={filter} />}
       </div>
     </div>
   );

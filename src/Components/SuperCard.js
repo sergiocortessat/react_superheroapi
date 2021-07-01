@@ -6,13 +6,16 @@ import SuperHero from './SuperHeroStats';
 // import { HiOutlineMailOpen } from 's/hi';
 // import { LinearProgress } from '@material-ui/core';
 
-const SuperCard = ({ data }) => {
+const SuperCard = ({ data, filter }) => {
   // console.log(data[0]);
-  const listElements = data.map((item, index) => (
-    index < 5 && (
-    <div className="card" style={{ width: '18rem' }} key={item.id}>
+  if (filter) {
+    console.log('yes');
+  }
+  const listElements = data.map((item) => (
+
+    <div className="card" style={{ width: '18rem' }} key={item.name}>
       <img className="card-img-top" src={item.image} alt="Card" />
-      <div className="card-body">
+      <div className="card-body hero-name">
         <h5 className="card-title">
           Name:
           {' '}
@@ -30,7 +33,7 @@ const SuperCard = ({ data }) => {
           {' '}
           {item.race ? item.race : 'Unknown'}
         </li>
-        <li className="list-group-item">
+        <li className="list-group-item first-appearance">
           First Appearance:
           {' '}
           {(item.firstAppearance && item.firstAppearance !== '-') && item.firstAppearance}
@@ -42,12 +45,12 @@ const SuperCard = ({ data }) => {
           {item.publisher}
         </li>
       </ul>
-      <div className="card-body">
+      <div className="card-body hero-stats">
         <h3>Hero Stats</h3>
         <SuperHero data={item} />
       </div>
     </div>
-    )
+
   ));
   return (
     <>
@@ -62,7 +65,8 @@ SuperCard.propTypes = {
   //   // //       url: PropTypes.string.isRequired,
   //   // //     }).isRequired,
   // }).isRequired,
-  data: PropTypes.objectOf(PropTypes.object).isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filter: PropTypes.string.isRequired,
   // data: PropTypes.arrayOf.isRequired,
 
 };
